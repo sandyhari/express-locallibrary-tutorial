@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
+const cors = require('cors');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var catalogRouter = require('./routes/catalog');
@@ -11,7 +11,7 @@ var compression = require('compression');
 var helmet = require('helmet');
 
 var app = express();
-
+app.use(cors())
 var mongoose = require('mongoose');
 var dev_db_url = 'mongodb+srv://hari:hari123@cluster0.4wpoe.mongodb.net/library?retryWrites=true&w=majority';
 var mongoDB = process.env.MONGODB_URI || dev_db_url;
